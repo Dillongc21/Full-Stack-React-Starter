@@ -1,4 +1,5 @@
 import path from 'path';
+import HtmlWpPlugin from "html-webpack-plugin";
 
 export default {
   mode: 'development',
@@ -6,10 +7,12 @@ export default {
   context: path.join(__dirname, "src"),
   entry: './app.js',
   target: 'web',
+
   output: {
     path: path.join(__dirname, "src"),
     filename: 'bundle.js'
   },
+
   module: {
     rules: [
       {
@@ -31,6 +34,15 @@ export default {
       }
     ],
   },
+
+  plugins: [
+    //Create HTML file that includes ref to bundled JS
+    new HtmlWpPlugin({
+      template: 'index.html',
+      inject: true
+    })
+  ],
+
   resolve: {
     extensions: ['*', '.js', '.jsx']
   }
