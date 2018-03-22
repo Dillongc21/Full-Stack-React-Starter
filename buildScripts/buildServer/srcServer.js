@@ -3,7 +3,7 @@ import express from 'express';
 import path from 'path';
 import open from 'open';
 import webpack from 'webpack';
-import config from '../webpack.config.dev';
+import config from '../../webpack.config.dev';
 
 /* eslint-disable no-console */
 
@@ -29,8 +29,8 @@ app.get('/users', function (req, res) {
   //hard coded for simplicity, pretend this hits a real database
   res.json([
     {"id": 1, "firstName":"Bob","lastName":"Smith","email":"bob@gmail.com"},
-    {"id": 1, "firstName":"Dillon","lastName":"Christensen","email":"dillongc21@gmail.com"},
-    {"id": 1, "firstName":"Jane","lastName":"Doe","email":"janeldoe@gmail.com"}
+    {"id": 2, "firstName":"Dillon","lastName":"Christensen","email":"dillongc21@gmail.com"},
+    {"id": 3, "firstName":"Jane","lastName":"Doe","email":"janeldoe@gmail.com"}
   ]);
 });
 

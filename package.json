@@ -5,7 +5,7 @@
   "scripts": {
     "prestart": "babel-node buildScripts/startMessage.js",
     "start": "npm-run-all --parallel security-check open:src lint:watch test:watch start-mockapi",
-    "open:src": "babel-node buildScripts/srcServer.js",
+    "open:src": "babel-node buildScripts/buildServer/srcServer.js",
     "lint": "esw webpack.config.* src buildScripts --color",
     "lint:watch": "npm run lint -- --watch",
     "security-check": "nsp check",
@@ -16,11 +16,10 @@
     "start-mockapi": "json-server --watch src/api/db.json --port 3001",
     "clean-dist": "rimraf ./dist mkdir dist",
     "prebuild": "npm-run-all clean-dist test lint",
-    "build": "babel-node buildScripts/build.js",
-    "postbuild": "babel-node buildScripts/distServer.js"
+    "build": "babel-node buildScripts/buildServer/build.js",
+    "postbuild": "babel-node buildScripts/buildServer/distServer.js"
   },
-  "author": "Cory House",
-  "license": "MIT",
+  "author": "Dillon Christensen",
   "babel": {
     "presets": [
       "env",
@@ -75,6 +74,7 @@
     "sass-loader": "^6.0.7",
     "style-loader": "0.13.1",
     "uglifyjs-webpack-plugin": "^1.2.4",
+    "url-search-params": "^0.10.0",
     "webpack": "^4.2.0",
     "webpack-cli": "^2.0.12",
     "webpack-dev-middleware": "3.0.1",

@@ -1,4 +1,5 @@
 import path from 'path';
+import webpack from 'webpack';
 import HtmlWpPlugin from "html-webpack-plugin";
 
 export default {
@@ -40,6 +41,9 @@ export default {
     new HtmlWpPlugin({
       template: 'index.html',
       inject: true
+    }),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('development')
     })
   ],
 

@@ -1,7 +1,5 @@
-import 'whatwg-fetch';
-import getBaseUrl from './baseUrl';
-
-const baseUrl = getBaseUrl();
+import {get, del} from './apiHelpers';
+console.log('in users')
 
 export function getUsers() {
   return get('users');
@@ -10,24 +8,3 @@ export function getUsers() {
 export function deleteUser(id) {
   return del(`users/${id}`);
 }
-
-function del(url) {
-  const req = new Request(baseUrl + url, {
-    method: 'DELETE'
-  });
-
-  return fetch(req).then(onSuccess, onError);
-}
-
-function get(url) {
-  return fetch(baseUrl + url).then(onSuccess, onError);
-}
-
-function onSuccess(response) {
-  return response.json();
-}
-
-function onError(error) {
-  console.log(error); // eslint-disable-line no-console
-}
-
