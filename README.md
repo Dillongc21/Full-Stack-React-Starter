@@ -1,2 +1,2 @@
-# PluralBuildJSStarterKit
-A Pluralsight Tutorial on developing a JS Starter Kit from scratch.
+# MERN Stack Starter
+This is my starter template for creating comprehensive MERN stack Apps.
