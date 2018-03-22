@@ -3,11 +3,16 @@
   "extends": [
     "eslint:recommended",
     "plugin:import/errors",
-    "plugin:import/warnings"
+    "plugin:import/warnings",
+    "standard-jsx"
   ],
   "parserOptions": {
     "ecmaVersion": 8,
-    "sourceType": "module"
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true,
+      "jsx": true
+    }
   },
   "env": {
     "browser": true,
@@ -15,6 +20,20 @@
     "mocha": true
   },
   "rules": {
-    "no-console": 1
-  }
+    "no-console": 1,
+    "react/jsx-no-bind": ["error", {
+      "allowArrowFunctions": true,
+      "allowBind": false,
+      "ignoreRefs": true
+    }],
+    "react/no-did-update-set-state": "error",
+    "react/no-unknown-property": "error",
+    "react/no-unused-prop-types": "error",
+    "react/prop-types": "error",
+    "react/react-in-jsx-scope": "error"
+  },
+
+  "plugins": [
+    "react"
+  ]
 }

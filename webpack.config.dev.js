@@ -1,23 +1,37 @@
 import path from 'path';
 
 export default {
-  debug: true,
+  mode: 'development',
   devtool: 'inline-source-map',
-  noInfo: false,
-  entry: [
-    path.resolve(__dirname, 'src/index')
-  ],
+  context: path.join(__dirname, "src"),
+  entry: './app.js',
   target: 'web',
   output: {
-    path: path.resolve(__dirname, 'src'),
-    publicPath: '/',
+    path: path.join(__dirname, "src"),
     filename: 'bundle.js'
   },
-  plugins: [],
   module: {
-    loaders: [
-      {test: /\.js$/, exclude: /node_modules/, loaders: ['babel']},
-      {test: /\.css$/, loaders: ['style','css']}
-    ]
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: 'babel-loader'
+        }
+      },
+      {
+        test: /\.scss$/,
+        use: [{
+          loader: "style-loader" // creates style nodes from JS strings
+        }, {
+          loader: "css-loader" // translates CSS into CommonJS
+        }, {
+          loader: "sass-loader" // compiles Sass to CSS
+        }]
+      }
+    ],
+  },
+  resolve: {
+    extensions: ['*', '.js', '.jsx']
   }
 }
