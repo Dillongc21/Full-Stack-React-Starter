@@ -1,5 +1,5 @@
 import {get, del} from './apiHelpers';
-console.log('in users')
+console.log('in users');
 
 export function getUsers() {
   return get('users');

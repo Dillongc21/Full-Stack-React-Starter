@@ -1,3 +1,4 @@
+/* eslint-disable jsx-quotes */
 // import {getUsers, deleteUser} from "./api/users.js";
 //
 // // Populate table of users via API call.
@@ -31,11 +32,17 @@
 //   });
 // });
 
-import React from 'react';
-import ReactDom from 'react-dom';
-import Layout from './components/Layout';
-import './app.scss';
+import React from 'react'
+import ReactDom from 'react-dom'
+import App from './components/root/App'
+import './app.scss'
+import { getUsers } from './api/users'
+
+const users = getUsers();
+console.log(users);
+
+
 
 const app = document.getElementById('app');
-ReactDom.render(<Layout />, app);
+ReactDom.render(<App title='Example App' />, app);
 
