@@ -36,13 +36,7 @@ import React from 'react'
 import ReactDom from 'react-dom'
 import App from './components/root/App'
 import './app.scss'
-import { getUsers } from './api/users'
-
-const users = getUsers();
-console.log(users);
-
-
+require('../database/dbHelper');
 
 const app = document.getElementById('app');
 ReactDom.render(<App title='Example App' />, app);
-
