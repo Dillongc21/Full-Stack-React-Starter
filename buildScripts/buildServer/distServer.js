@@ -8,7 +8,7 @@ import users from './apiRouters/usersRouter'
 /* eslint-disable no-console */
 
 // variables
-const port = 3000;
+const port = process.env.PORT || 3000;
 const app = express();
 
 app.use(compression());
